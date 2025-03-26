@@ -1,0 +1,15 @@
+import random
+
+def monitor_temperature(temp, low, high, alert):
+    if temp < low or temp > high:
+        alert(temp, low, high)
+
+def alert(temp, low, high):
+    print(f"ALERT: Temperature {temp:.2f} is {'below' if temp < low else 'above'} limit {low if temp < low else high:.2f}!")
+
+def random_temp(low=20, high=40):
+    return random.uniform(low, high)
+
+low, high = 25.0, 35.0
+for _ in range(10):
+    monitor_temperature(random_temp(), low, high, alert)
